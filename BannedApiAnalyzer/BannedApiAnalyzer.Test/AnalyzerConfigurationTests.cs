@@ -41,7 +41,7 @@ namespace BannedApiAnalyzer.Test
                     }
                 }
 
-                foreach (var type in typeof(BasicSymbolIsBannedAnalyzer).Assembly.DefinedTypes)
+                foreach (var type in typeof(VisualBasicSymbolIsBannedAnalyzer).Assembly.DefinedTypes)
                 {
                     if (type.GetCustomAttributes(typeof(DiagnosticAnalyzerAttribute), true).Any())
                     {

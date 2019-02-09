@@ -10,7 +10,7 @@ namespace BannedApiAnalyzer.VisualBasic.ApiDesign
     using Microsoft.CodeAnalysis.VisualBasic.Syntax;
 
     [DiagnosticAnalyzer(LanguageNames.VisualBasic)]
-    internal class BasicSymbolIsBannedAnalyzer : SymbolIsBannedAnalyzer<SyntaxKind>
+    internal class VisualBasicSymbolIsBannedAnalyzer : SymbolIsBannedAnalyzer<SyntaxKind>
     {
         protected override SyntaxKind XmlCrefSyntaxKind => SyntaxKind.XmlCrefAttribute;
 
