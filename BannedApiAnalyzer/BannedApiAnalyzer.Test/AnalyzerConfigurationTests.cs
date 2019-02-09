@@ -8,8 +8,8 @@ namespace BannedApiAnalyzer.Test
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
-    using BannedApiAnalyzer.CSharp.ApiDesign;
-    using BannedApiAnalyzer.VisualBasic.ApiDesign;
+    using BannedApiAnalyzer.CSharp.ApiDesignRules;
+    using BannedApiAnalyzer.VisualBasic.ApiDesignRules;
     using Microsoft.CodeAnalysis;
     using Microsoft.CodeAnalysis.CodeFixes;
     using Microsoft.CodeAnalysis.CSharp;

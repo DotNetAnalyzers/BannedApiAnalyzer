@@ -1,13 +1,13 @@
 ﻿// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
 // Licensed under the MIT license. See LICENSE in the project root for license information.
 
-namespace BannedApiAnalyzer.Test.ApiDesign
+namespace BannedApiAnalyzer.Test.ApiDesignRules
 {
     using System.Threading;
     using System.Threading.Tasks;
-    using BannedApiAnalyzer.ApiDesign;
-    using BannedApiAnalyzer.CSharp.ApiDesign;
-    using BannedApiAnalyzer.VisualBasic.ApiDesign;
+    using BannedApiAnalyzer.ApiDesignRules;
+    using BannedApiAnalyzer.CSharp.ApiDesignRules;
+    using BannedApiAnalyzer.VisualBasic.ApiDesignRules;
     using Microsoft.CodeAnalysis;
     using Microsoft.CodeAnalysis.CSharp.Testing;
     using Microsoft.CodeAnalysis.Testing;
@@ -15,10 +15,10 @@ namespace BannedApiAnalyzer.Test.ApiDesign
     using Microsoft.CodeAnalysis.VisualBasic.Testing;
     using Xunit;
     using VerifyCS = Microsoft.CodeAnalysis.CSharp.Testing.XUnit.CodeFixVerifier<
-        BannedApiAnalyzer.CSharp.ApiDesign.CSharpSymbolIsBannedAnalyzer,
+        BannedApiAnalyzer.CSharp.ApiDesignRules.CSharpSymbolIsBannedAnalyzer,
         Microsoft.CodeAnalysis.Testing.EmptyCodeFixProvider>;
     using VerifyVB = Microsoft.CodeAnalysis.VisualBasic.Testing.XUnit.CodeFixVerifier<
-        BannedApiAnalyzer.VisualBasic.ApiDesign.VisualBasicSymbolIsBannedAnalyzer,
+        BannedApiAnalyzer.VisualBasic.ApiDesignRules.VisualBasicSymbolIsBannedAnalyzer,
         Microsoft.CodeAnalysis.Testing.EmptyCodeFixProvider>;
 
     // For specification of document comment IDs see https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/documentation-comments#processing-the-documentation-file

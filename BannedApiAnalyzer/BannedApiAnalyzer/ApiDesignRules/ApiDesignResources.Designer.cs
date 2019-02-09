@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BannedApiAnalyzer.ApiDesign {
+namespace BannedApiAnalyzer.ApiDesignRules {
     using System;
     using System.Reflection;
     
@@ -40,7 +40,7 @@ namespace BannedApiAnalyzer.ApiDesign {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BannedApiAnalyzer.ApiDesign.ApiDesignResources", typeof(ApiDesignResources).GetTypeInfo().Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BannedApiAnalyzer.ApiDesignRules.ApiDesignResources", typeof(ApiDesignResources).GetTypeInfo().Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

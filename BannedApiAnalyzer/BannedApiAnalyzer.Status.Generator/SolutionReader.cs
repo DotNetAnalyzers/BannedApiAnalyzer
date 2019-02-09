@@ -66,7 +66,7 @@ namespace BannedApiAnalyzer.Status.Generator
         /// <param name="analyzerProjectName">The project name of the analyzer project.</param>
         /// <param name="codeFixProjectName">The project name of the code fix project.</param>
         /// <returns>A <see cref="Task{TResult}"/> representing the asynchronous operation.</returns>
-        public static async Task<SolutionReader> CreateAsync(string pathToSln, string analyzerProjectName = "BannedApiAnalyzer", string codeFixProjectName = "BannedApiAnalyzer.CodeFixes")
+        public static async Task<SolutionReader> CreateAsync(string pathToSln, string analyzerProjectName = "BannedApiAnalyzer.CSharp", string codeFixProjectName = "BannedApiAnalyzer.CodeFixes")
         {
             SolutionReader reader = new SolutionReader();
 
@@ -84,9 +84,9 @@ namespace BannedApiAnalyzer.Status.Generator
         /// Analyzes the project and returns information about the diagnostics in it.
         /// </summary>
         /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
-        public async Task<ImmutableList<DocumentationDiagnostic>> GetDiagnosticsAsync()
+        public async Task<ImmutableList<BannedApiDiagnostic>> GetDiagnosticsAsync()
         {
-            var diagnostics = ImmutableList.CreateBuilder<DocumentationDiagnostic>();
+            var diagnostics = ImmutableList.CreateBuilder<BannedApiDiagnostic>();
 
             var syntaxTrees = _analyzerCompilation.SyntaxTrees;
 
@@ -134,7 +134,7 @@ namespace BannedApiAnalyzer.Status.Generator
                         continue;
                     }
 
-                    var diagnostic = new DocumentationDiagnostic
+                    var diagnostic = new BannedApiDiagnostic
                     {
                         Id = descriptorInfo.Id,
                         Category = descriptorInfo.Category,
