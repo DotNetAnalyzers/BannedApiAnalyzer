@@ -2,7 +2,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.1;net452</TargetFrameworks>
+    <TargetFrameworks>netstandard1.3;net46</TargetFrameworks>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <RootNamespace>BannedApiAnalyzer</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -16,14 +16,6 @@
     <NoWarn>$(NoWarn),NU5105</NoWarn>
   </PropertyGroup>
 
-  <Choose>
-    <When Condition="'$(TargetFramework)' == 'netstandard1.1'">
-      <PropertyGroup>
-        <PackageTargetFallback>portable-net45+win8</PackageTargetFallback>
-      </PropertyGroup>
-    </When>
-  </Choose>
-
   <PropertyGroup>
     <CodeAnalysisRuleSet>..\BannedApiAnalyzer.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
@@ -34,8 +26,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="1.2.1" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="1.2.1" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="2.6.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="2.6.0" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,7 +1,7 @@
 ﻿// Copyright (c) Tunnel Vision Laboratories, LLC. All Rights Reserved.
 // Licensed under the MIT license. See LICENSE in the project root for license information.
 
-#if NETSTANDARD1_1
+#if NETSTANDARD1_3
 
 namespace System.Diagnostics.CodeAnalysis
 {
