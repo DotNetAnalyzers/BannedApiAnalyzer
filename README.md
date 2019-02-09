@@ -4,7 +4,7 @@
 
 [![Join the chat at https://gitter.im/DotNetAnalyzers/BannedApiAnalyzer](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/DotNetAnalyzers/BannedApiAnalyzer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[![Build status](https://ci.appveyor.com/api/projects/status/___/branch/master?svg=true)](https://ci.appveyor.com/project/sharwell/BannedApiAnalyzer/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/npxe1cc6fo8d6wn6/branch/master?svg=true)](https://ci.appveyor.com/project/sharwell/BannedApiAnalyzer/branch/master)
 
 [![codecov.io](http://codecov.io/github/DotNetAnalyzers/BannedApiAnalyzer/coverage.svg?branch=master)](http://codecov.io/github/DotNetAnalyzers/BannedApiAnalyzer?branch=master)
 
