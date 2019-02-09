@@ -33,6 +33,6 @@ cache:
 
 # 'Release' is hard-coded to ensure VSIX and NuGet artifacts are only published for release configuration builds
 artifacts:
-- path: 'BannedApiAnalyzer\BannedApiAnalyzer.Vsix\bin\Release\net452\*.vsix'
+- path: 'BannedApiAnalyzer\BannedApiAnalyzer.Vsix\bin\Release\net46\*.vsix'
 - path: 'BannedApiAnalyzer\BannedApiAnalyzer.CodeFixes\bin\Release\*.nupkg'
 - path: 'BannedApiAnalyzer.Status.json'
