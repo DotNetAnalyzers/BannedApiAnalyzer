@@ -1,0 +1,38 @@
+version: '{build}'
+image: Visual Studio 2017
+init:
+- git config --global core.autocrlf true
+configuration:
+- Debug
+- Release
+before_build:
+- nuget restore
+skip_tags: true
+build:
+  project: BannedApiAnalyzer.sln
+  verbosity: minimal
+test_script:
+- cd build
+- ps: |
+    if ($env:Configuration -eq 'Debug') {
+      .\opencover-report.ps1 -Debug -NoBuild -NoReport -AppVeyor
+      if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode) }
+      $packageConfig = [xml](Get-Content ..\.nuget\packages.config)
+      $codecov_version = $packageConfig.SelectSingleNode('/packages/package[@id="Codecov"]').version
+      $codecov = "..\packages\Codecov.$codecov_version\tools\codecov.exe"
+      &$codecov -f '..\build\OpenCover.Reports\OpenCover.BannedApiAnalyzer.xml'
+    } else {
+      .\opencover-report.ps1 -NoBuild -NoReport -AppVeyor
+      if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode) }
+    }
+- cd ..
+- .\BannedApiAnalyzer\BannedApiAnalyzer.Status.Generator\bin\%Configuration%\net46\BannedApiAnalyzer.Status.Generator.exe .\BannedApiAnalyzer.sln > BannedApiAnalyzer.Status.json
+cache:
+  - packages -> **\packages.config
+  - C:\Users\appveyor\.nuget\packages -> appveyor.yml
+
+# 'Release' is hard-coded to ensure VSIX and NuGet artifacts are only published for release configuration builds
+artifacts:
+- path: 'BannedApiAnalyzer\BannedApiAnalyzer.Vsix\bin\Release\net452\*.vsix'
+- path: 'BannedApiAnalyzer\BannedApiAnalyzer.CodeFixes\bin\Release\*.nupkg'
+- path: 'BannedApiAnalyzer.Status.json'
