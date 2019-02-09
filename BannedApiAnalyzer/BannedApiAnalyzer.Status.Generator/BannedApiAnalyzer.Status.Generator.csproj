@@ -31,4 +31,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="7.0.1-beta3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BannedApiAnalyzer.CodeFixes\BannedApiAnalyzer.CodeFixes.csproj" />
+    <ProjectReference Include="..\BannedApiAnalyzer\BannedApiAnalyzer.csproj" />
+  </ItemGroup>
+
 </Project>
