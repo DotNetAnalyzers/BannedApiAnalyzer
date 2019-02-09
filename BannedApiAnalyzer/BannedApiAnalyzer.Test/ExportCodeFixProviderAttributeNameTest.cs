@@ -27,7 +27,7 @@ namespace BannedApiAnalyzer.Test
             }
         }
 
-        [Theory]
+        [Theory(Skip = "Currently there are no code fixes in this analyzer package.")]
         [MemberData(nameof(CodeFixProviderTypeData))]
         public void TestExportCodeFixProviderAttribute(Type codeFixProvider)
         {

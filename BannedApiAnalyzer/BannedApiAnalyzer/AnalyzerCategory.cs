@@ -8,5 +8,9 @@ namespace BannedApiAnalyzer
     /// </summary>
     internal static class AnalyzerCategory
     {
+        /// <summary>
+        /// Category definition for API design rules.
+        /// </summary>
+        public const string ApiDesign = nameof(ApiDesign);
     }
 }
