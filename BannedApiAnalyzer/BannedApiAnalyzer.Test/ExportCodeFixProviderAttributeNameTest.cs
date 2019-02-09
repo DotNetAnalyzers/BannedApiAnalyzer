@@ -7,7 +7,7 @@ namespace BannedApiAnalyzer.Test
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
-    using DocumentationAnalyzers.Helpers;
+    using BannedApiAnalyzer.Helpers;
     using Microsoft.CodeAnalysis;
     using Microsoft.CodeAnalysis.CodeFixes;
     using Xunit;
