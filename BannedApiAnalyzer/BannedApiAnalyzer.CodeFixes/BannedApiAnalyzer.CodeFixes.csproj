@@ -31,6 +31,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BannedApiAnalyzer.CSharp\BannedApiAnalyzer.CSharp.csproj" />
+    <ProjectReference Include="..\BannedApiAnalyzer.VisualBasic\BannedApiAnalyzer.VisualBasic.csproj" />
     <ProjectReference Include="..\BannedApiAnalyzer\BannedApiAnalyzer.csproj" />
   </ItemGroup>
 

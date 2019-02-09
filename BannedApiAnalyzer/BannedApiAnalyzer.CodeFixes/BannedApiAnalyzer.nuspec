@@ -21,13 +21,27 @@
     <file src="..\..\LICENSE" />
     <file src="..\..\THIRD-PARTY-NOTICES.txt" />
 
-    <!-- Binaries and symbols -->
+    <!-- C# binaries and symbols -->
     <file src="bin\$Configuration$\netstandard1.3\BannedApiAnalyzer.dll" target="analyzers\dotnet\cs" />
     <file src="bin\$Configuration$\netstandard1.3\**\BannedApiAnalyzer.resources.dll" target="analyzers\dotnet\cs" />
     <file src="bin\$Configuration$\netstandard1.3\BannedApiAnalyzer.pdb" target="analyzers\dotnet\cs" />
+    <file src="bin\$Configuration$\netstandard1.3\BannedApiAnalyzer.CSharp.dll" target="analyzers\dotnet\cs" />
+    <file src="bin\$Configuration$\netstandard1.3\**\BannedApiAnalyzer.CSharp.resources.dll" target="analyzers\dotnet\cs" />
+    <file src="bin\$Configuration$\netstandard1.3\BannedApiAnalyzer.CSharp.pdb" target="analyzers\dotnet\cs" />
     <file src="bin\$Configuration$\netstandard1.3\BannedApiAnalyzer.CodeFixes.dll" target="analyzers\dotnet\cs" />
     <file src="bin\$Configuration$\netstandard1.3\**\BannedApiAnalyzer.CodeFixes.resources.dll" target="analyzers\dotnet\cs" />
     <file src="bin\$Configuration$\netstandard1.3\BannedApiAnalyzer.CodeFixes.pdb" target="analyzers\dotnet\cs" />
+
+    <!-- Visual Basic binaries and symbols -->
+    <file src="bin\$Configuration$\netstandard1.3\BannedApiAnalyzer.dll" target="analyzers\dotnet\vb" />
+    <file src="bin\$Configuration$\netstandard1.3\**\BannedApiAnalyzer.resources.dll" target="analyzers\dotnet\vb" />
+    <file src="bin\$Configuration$\netstandard1.3\BannedApiAnalyzer.pdb" target="analyzers\dotnet\vb" />
+    <file src="bin\$Configuration$\netstandard1.3\BannedApiAnalyzer.VisualBasic.dll" target="analyzers\dotnet\vb" />
+    <file src="bin\$Configuration$\netstandard1.3\**\BannedApiAnalyzer.VisualBasic.resources.dll" target="analyzers\dotnet\vb" />
+    <file src="bin\$Configuration$\netstandard1.3\BannedApiAnalyzer.VisualBasic.pdb" target="analyzers\dotnet\vb" />
+    <file src="bin\$Configuration$\netstandard1.3\BannedApiAnalyzer.CodeFixes.dll" target="analyzers\dotnet\vb" />
+    <file src="bin\$Configuration$\netstandard1.3\**\BannedApiAnalyzer.CodeFixes.resources.dll" target="analyzers\dotnet\vb" />
+    <file src="bin\$Configuration$\netstandard1.3\BannedApiAnalyzer.CodeFixes.pdb" target="analyzers\dotnet\vb" />
 
     <!-- Dependencies -->
 
@@ -37,6 +51,8 @@
 
     <!-- Source code -->
     <file src="..\BannedApiAnalyzer\**\*.cs" exclude="..\BannedApiAnalyzer\obj\**\*.cs" target="src"/>
+    <file src="..\BannedApiAnalyzer.CSharp\**\*.cs" exclude="..\BannedApiAnalyzer.CSharp\obj\**\*.cs" target="src"/>
+    <file src="..\BannedApiAnalyzer.VisualBasic\**\*.cs" exclude="..\BannedApiAnalyzer.VisualBasic\obj\**\*.cs" target="src"/>
     <file src="**\*.cs" exclude="obj\**\*.cs;Properties\AssemblyInfo.cs" target="src"/>
 
   </files>
