@@ -9,7 +9,7 @@ namespace BannedApiAnalyzer.Status.Generator
     /// <summary>
     /// Represents a diagnostic in the BannedApiAnalyzer project.
     /// </summary>
-    public class DocumentationDiagnostic
+    public class BannedApiDiagnostic
     {
         /// <summary>
         /// Gets or sets the ID of the diagnostic, including the prefix 'DOC'.
@@ -103,14 +103,14 @@ namespace BannedApiAnalyzer.Status.Generator
         public string HelpLink { get; set; }
 
         /// <summary>
-        /// Creates an instance of the <see cref="DocumentationDiagnostic"/> class
+        /// Creates an instance of the <see cref="BannedApiDiagnostic"/> class
         /// that is populated with the data stored in <paramref name="value"/>.
         /// </summary>
-        /// <param name="value">A JSON string representing a <see cref="DocumentationDiagnostic"/>.</param>
-        /// <returns>A <see cref="DocumentationDiagnostic"/> that is populated with the data stored in <paramref name="value"/>.</returns>
-        public static DocumentationDiagnostic FromJson(string value)
+        /// <param name="value">A JSON string representing a <see cref="BannedApiDiagnostic"/>.</param>
+        /// <returns>A <see cref="BannedApiDiagnostic"/> that is populated with the data stored in <paramref name="value"/>.</returns>
+        public static BannedApiDiagnostic FromJson(string value)
         {
-            return JsonConvert.DeserializeObject<DocumentationDiagnostic>(value);
+            return JsonConvert.DeserializeObject<BannedApiDiagnostic>(value);
         }
 
         /// <summary>

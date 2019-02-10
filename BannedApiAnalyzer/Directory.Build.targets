@@ -3,7 +3,7 @@
 
   <ItemGroup>
     <!-- Enable code generation for resource files -->
-    <CodeGenerationEmbeddedResource Include="@(EmbeddedResource)" Exclude="**\*.??-??.resx" />
+    <CodeGenerationEmbeddedResource Include="@(EmbeddedResource)" Exclude="**\*.??.resx;**\*.??-??.resx;**\*.??-????.resx" />
     <EmbeddedResource Update="@(CodeGenerationEmbeddedResource)" Generator="ResXFileCodeGenerator" />
   </ItemGroup>
 
@@ -13,7 +13,7 @@
     <Compile Update="@(CodeGenerationEmbeddedResource->'%(RecursiveDir)%(Filename).Designer.cs')" DependentUpon="$([System.IO.Path]::ChangeExtension($([System.IO.Path]::GetFileNameWithoutExtension(%(Identity))), '.resx'))" />
 
     <!-- Localized embedded resources are just dependent on the parent RESX -->
-    <EmbeddedResource Update="**\*.??-??.resx" DependentUpon="$([System.IO.Path]::ChangeExtension($([System.IO.Path]::GetFileNameWithoutExtension(%(Identity))), '.resx'))" />
+    <EmbeddedResource Update="**\*.??.resx;**\*.??-??.resx;**\*.??-????.resx" DependentUpon="$([System.IO.Path]::ChangeExtension($([System.IO.Path]::GetFileNameWithoutExtension(%(Identity))), '.resx'))" />
   </ItemGroup>
 
   <ItemGroup>

@@ -2,4 +2,8 @@ BannedApiAnalyzer provides warnings that indicate banned API rule violations in 
 
 ### Rule areas
 
+**[API Design Rules](docs/ApiDesignRules.md)**
+
+Rules related to API design and usage.
+
 ### Additional documentation

@@ -8,12 +8,15 @@ namespace BannedApiAnalyzer.Test
     using System.Linq;
     using System.Threading;
     using System.Threading.Tasks;
+    using BannedApiAnalyzer.CSharp.ApiDesignRules;
+    using BannedApiAnalyzer.VisualBasic.ApiDesignRules;
     using Microsoft.CodeAnalysis;
     using Microsoft.CodeAnalysis.CodeFixes;
     using Microsoft.CodeAnalysis.CSharp;
     using Microsoft.CodeAnalysis.Diagnostics;
     using Microsoft.CodeAnalysis.Testing;
     using Microsoft.CodeAnalysis.Testing.Verifiers;
+    using Microsoft.CodeAnalysis.VisualBasic;
     using Xunit;
 
     public class AnalyzerConfigurationTests
@@ -29,6 +32,22 @@ namespace BannedApiAnalyzer.Test
                         yield return new object[] { type };
                     }
                 }
+
+                foreach (var type in typeof(CSharpSymbolIsBannedAnalyzer).Assembly.DefinedTypes)
+                {
+                    if (type.GetCustomAttributes(typeof(DiagnosticAnalyzerAttribute), true).Any())
+                    {
+                        yield return new object[] { type };
+                    }
+                }
+
+                foreach (var type in typeof(VisualBasicSymbolIsBannedAnalyzer).Assembly.DefinedTypes)
+                {
+                    if (type.GetCustomAttributes(typeof(DiagnosticAnalyzerAttribute), true).Any())
+                    {
+                        yield return new object[] { type };
+                    }
+                }
             }
         }
 
@@ -36,10 +55,21 @@ namespace BannedApiAnalyzer.Test
         [MemberData(nameof(AllAnalyzers))]
         public async Task TestEmptySourceAsync(Type analyzerType)
         {
-            await new CSharpTest(analyzerType)
+            if (analyzerType.GetCustomAttributes(typeof(DiagnosticAnalyzerAttribute), true).Any(attr => ((DiagnosticAnalyzerAttribute)attr).Languages.Contains(LanguageNames.CSharp)))
             {
-                TestCode = string.Empty,
-            }.RunAsync(CancellationToken.None).ConfigureAwait(false);
+                await new CSharpTest(analyzerType)
+                {
+                    TestCode = string.Empty,
+                }.RunAsync(CancellationToken.None).ConfigureAwait(false);
+            }
+
+            if (analyzerType.GetCustomAttributes(typeof(DiagnosticAnalyzerAttribute), true).Any(attr => ((DiagnosticAnalyzerAttribute)attr).Languages.Contains(LanguageNames.VisualBasic)))
+            {
+                await new BasicTest(analyzerType)
+                {
+                    TestCode = string.Empty,
+                }.RunAsync(CancellationToken.None).ConfigureAwait(false);
+            }
         }
 
         [Theory]
@@ -75,6 +105,29 @@ namespace BannedApiAnalyzer.Test
 
             protected override CompilationOptions CreateCompilationOptions()
                 => new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary, allowUnsafe: true);
+
+            protected override IEnumerable<CodeFixProvider> GetCodeFixProviders()
+                => new CodeFixProvider[0];
+
+            protected override IEnumerable<DiagnosticAnalyzer> GetDiagnosticAnalyzers()
+                => new[] { (DiagnosticAnalyzer)Activator.CreateInstance(_analyzerType) };
+        }
+
+        private class BasicTest : CodeFixTest<XUnitVerifier>
+        {
+            private readonly Type _analyzerType;
+
+            public BasicTest(Type analyzerType)
+            {
+                _analyzerType = analyzerType;
+            }
+
+            public override string Language => LanguageNames.VisualBasic;
+
+            protected override string DefaultFileExt => "vb";
+
+            protected override CompilationOptions CreateCompilationOptions()
+                => new VisualBasicCompilationOptions(OutputKind.DynamicallyLinkedLibrary);
 
             protected override IEnumerable<CodeFixProvider> GetCodeFixProviders()
                 => new CodeFixProvider[0];
