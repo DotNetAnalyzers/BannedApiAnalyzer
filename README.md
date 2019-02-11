@@ -22,7 +22,9 @@ For documentation and reasoning on the rules themselves, see the [DOCUMENTATION.
 
 ## Installation
 
-BannedApiAnalyzer can be installed using the NuGet command line or the NuGet Package Manager in Visual Studio 2015.
+BannedApiAnalyzer requires Visual Studio 2017 version 15.5 or newer, or the equivalent command line compiler tools.
+
+BannedApiAnalyzer can be installed using the NuGet command line or the NuGet Package Manager in Visual Studio 2017.
 
 **Install using the command line:**
 
@@ -34,7 +36,7 @@ Install-Package DotNetAnalyzers.BannedApiAnalyzer
 
 ## Team Considerations
 
-If you use older versions of Visual Studio in addition to Visual Studio 2015 or Visual Studio 2017, you may still install these analyzers. They will be automatically disabled when you open the project back up in Visual Studio 2013 or earlier.
+If you use older versions of Visual Studio in addition to Visual Studio 2017 or Visual Studio 2019, you may still install these analyzers. They will be automatically disabled when you open the project back up in versions of Visual Studio prior to Visual Studio 2017 version 15.5.
 
 ## Contributing
 
